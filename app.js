@@ -11,14 +11,14 @@ app.get("/", function (req, res) {
     console.log(response.statusCode); //Prints the status code from the WS
 
     response.on("data", function(data){
+
       const weatherData = JSON.parse(data); //Format data from the WS to JS object
       const temp = weatherData.main.temp;
       const description = weatherData.weather[0].description;
-      console.log("Weather description: " + description);
-      console.log("Weather temperature: " + temp);
+      res.send("The temperature in London is " + temp + " degree Celcius")
     });
   });
-  res.status(200).send("Server is running");
+  //res.status(200).send("Server is running");
 });
 
 app.listen(3000, function () {
