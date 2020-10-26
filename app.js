@@ -5,8 +5,7 @@ const app = express();
 
 app.get("/", function (req, res) {
   const url =
-    "https://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=31c9d59138e8688e103b8a62deb1fc57";
-
+    "https://api.openweathermap.org/data/2.5/weather?q=London,uk&units=metric&appid=31c9d59138e8688e103b8a62deb1fc57";
   https.get(url, function (response) {
     console.log(response.statusCode); //Prints the status code from the WS
 
