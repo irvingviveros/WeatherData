@@ -15,7 +15,9 @@ app.get("/", function (req, res) {
       const weatherData = JSON.parse(data); //Format data from the WS to JS object
       const temp = weatherData.main.temp;
       const description = weatherData.weather[0].description;
-      res.send("The temperature in London is " + temp + " degree Celcius")
+      res.write("<h1>The temperature in London is " + temp + " degree Celcius</h1>")
+      res.write("<p>The weather is currently " + description + "</p>")
+      res.send();
     });
   });
   //res.status(200).send("Server is running");
